@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="73a9686f-23a6-4e03-bf4b-76046f6c5aa1" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1S0xL9yasvWCNqyPN7BXliY89SD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="LET" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\sleek-dashboard\src" />
+      <recent name="D:\sleek-dashboard\src\assets\plugins\leaflet" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73a9686f-23a6-4e03-bf4b-76046f6c5aa1" name="Default Changelist" comment="" />
+      <created>1570714256174</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570714256174</updated>
+      <workItem from="1570714260931" duration="4136000" />
+      <workItem from="1570770891420" duration="11377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="334" key="FileChooserDialogImpl" timestamp="1570716990372">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="740" y="334" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1570716990372" />
+    <state x="479" y="151" key="SettingsEditor" timestamp="1570715322540">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="479" y="151" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1570715322540" />
+    <state x="661" y="402" key="com.intellij.ide.util.TipDialog" timestamp="1570770900966">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="661" y="402" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1570770900966" />
+    <state x="759" y="390" width="708" height="309" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1570715297591">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="759" y="390" width="708" height="309" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1570715297591" />
+  </component>
+</project>
