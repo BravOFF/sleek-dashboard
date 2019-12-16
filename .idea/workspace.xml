@@ -52,7 +52,12 @@
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
-        <serviceView />
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -100,7 +105,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2505" y="133" key="CommitChangelistDialog2" timestamp="1576496771141">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2505" y="133" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1576496771141" />
     <state x="740" y="334" key="FileChooserDialogImpl" timestamp="1570716990372">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
