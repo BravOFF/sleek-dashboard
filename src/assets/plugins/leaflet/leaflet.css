@@ -279,15 +279,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a,
 .leaflet-bar a:hover {
-	background-color: #124297;
-	border-bottom: 1px solid #395d90;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	color: white;
+	color: black;
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
@@ -296,11 +296,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	display: block;
 	}
 .leaflet-bar a:hover {
-	background-color: #1d2647;
+	background-color: #f4f4f4;
 	}
-
-
-
 .leaflet-bar a:first-child {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
@@ -312,7 +309,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
-	background-color: #395d90;
+	background-color: #f4f4f4;
 	color: #bbb;
 	}
 
@@ -347,7 +344,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-control-layers {
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #124297;
+	background: #fff;
 	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
@@ -373,8 +370,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
-	color: white;
-	background: #124297;
+	color: #333;
+	background: #fff;
 	}
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
@@ -506,8 +503,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-	background: #124297;
-	color: white;
+	background: white;
+	color: #333;
 	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
 	}
 .leaflet-container a.leaflet-popup-close-button {
@@ -528,8 +525,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-container a.leaflet-popup-close-button:hover {
 	color: #999;
 	}
-
-
 .leaflet-popup-scrolled {
 	overflow: auto;
 	border-bottom: 1px solid #ddd;
@@ -564,8 +559,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	background: #fff;
 	border: 1px solid #666;
 	}
-
-
 
 
 /* Tooltip */
@@ -645,126 +638,3 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
-
-.info-stat {
-  display: flex;
-  justify-content: space-between;
-}
-
-.info-stat p {
-  max-width: 500px;
-  text-align: end;
-}
-
-.info-card {
-  display: block;
-  margin: 0;
-}
-
-.map-card{
-  overflow:hidden;
-  height: 100%; width: 100%;
-  display: flex;
-	position: relative;
-}
-
-#mapid{
-  height:100%;
-  width:100%;
-  position: absolute;
-  display: flex;
-
-}
-
-#map-menu{
-  background-color: #124297;
-  z-index: 500;
-  position: relative;
-  width: 50%;
-  left: -50%;
-  display: block;
-  transition: all ease 0.5s;
-	overflow-y: scroll;
-}
-
-#map-menu::-webkit-scrollbar{
-	width: 6px;
-	transition: all ease 0.5s;
-}
-
-#map-menu::-webkit-scrollbar-thumb{
-	width: 6px;
-	background-color: white;
-	border-radius: 3px;
-}
-
-#map-menu::-webkit-scrollbar-track{
-	background-color: rgba(76, 132, 255, 0.5);
-	width: 8px;
-}
-
-#map-menu.on{
-  display: block;
-  left: 0px;
-  border-right-width: 10px;
-  border-right-style: solid;
-  border-right-color: rgba(76, 132, 255, 0.5);
-  background-clip: padding-box;
-}
-
-#map-menu p{
-  font-size: medium;
-  margin: 0px 10px;
-  color: white;
-  font-weight: lighter;
-}
-
-#map-menu h1{
-  font-size: xx-large;
-	margin: 0px 5px;
-  color: white;
-  font-weight: bolder;
-}
-
-#but{
-  background-color: rgba(76, 132, 255, 0.5);
-  display: block;
-  height: 30px;
-  width: 10px;
-  align-self: center;
-  z-index: 500;
-  left: -50%;
-  transition: all ease 0.5s;
-  position: relative;
-  border-radius: 0 5px 5px 0 ;
-}
-
-#but.on{
-  display: block;
-  left: 0px;
-}
-
-#but:hover a{
-	width: 20px;
-}
-
-#but:hover{
-	width: 20px;
-}
-
-#but a{
-  height: 30px;
-  width: 10px;
-  display: block;
-}
-
-#demo {
-display: block;
-align-items: baseline;
-}
-
-.label{
-  background-color: #124297;
-  color: #ffffff;
-  padding: 0px 5px;
-}

@@ -1,6 +1,17 @@
 
-var mymap = L.map('mapid').setView([65, 100], 2);
-mymap.setMinZoom(2);
+/*
+async function fas(lin) {
+  let response = await fetch(lin);
+  return await response.json();
+}
+(async () => {
+  let response = await fetch('/SetStation.json');
+  let dat = await response.json();
+})();
+*/
+
+var mymap = L.map('mapid').setView([65, 100], 3);
+mymap.setMinZoom(3);
 
 var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -16,136 +27,61 @@ var baseMaps = {
   OSM: osmLayer,
 };
 
-
-var southWest = L.latLng(-300, -200),
-northEast = L.latLng(300, 200);
-var bounds = L.latLngBounds(southWest, northEast);
-
-mymap.setMaxBounds(bounds);
-mymap.on('drag', function() {
-  mymap.panInsideBounds(bounds, { animate: false });
-});
-
 let arMarker = {
-  "RZD" : L.icon({
-    iconUrl: 'assets/plugins/leaflet/images/marker1.png',
-    iconSize:     [16, 16],
-    iconAnchor:   [8, 8],
-    popupAnchor:  [0, -8]
+  0 : L.icon({}),
+  1 : L.icon({
+    iconUrl: 'img/marker1.png',
+    iconSize:     [20, 20],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, -10]
   }),
 
-  "IGS" : L.icon({
-    iconUrl: 'assets/plugins/leaflet/images/marker2.png',
-    iconSize:     [16, 16],
-    iconAnchor:   [8, 8],
-    popupAnchor:  [0, -8]
+  2 : L.icon({
+    iconUrl: 'img/marker2.png',
+    iconSize:     [20, 20],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, -10]
   }),
 
-  "WORT" : L.icon({
-    iconUrl: 'assets/plugins/leaflet/images/marker3.png',
-    iconSize:     [16, 16],
-    iconAnchor:   [8, 8],
-    popupAnchor:  [0, -8]
+  3 : L.icon({
+    iconUrl: 'img/marker3.png',
+    iconSize:     [20, 20],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, -10]
   }),
 
-  "FAGS" : L.icon({
-    iconUrl: 'assets/plugins/leaflet/images/marker4.png',
-    iconSize:     [16, 16],
-    iconAnchor:   [8, 8],
-    popupAnchor:  [0, -8]
+  4 : L.icon({
+    iconUrl: 'img/marker4.png',
+    iconSize:     [20, 20],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, -10]
   }),
 
-  "EPN" : L.icon({
-    iconUrl: 'assets/plugins/leaflet/images/marker5.png',
-    iconSize:     [16, 16],
-    iconAnchor:   [8, 8],
-    popupAnchor:  [0, -8]
+  5 : L.icon({
+    iconUrl: 'img/marker5.png',
+    iconSize:     [20, 20],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, -10]
   }),
 };
 
-let onMarker = L.icon({
-  iconUrl: 'assets/plugins/leaflet/images/marker5.png',
-  shadowUrl: 'assets/plugins/leaflet/images/markerShadow.png',
-  shadowSize: [26, 26],
-  shadowAnchor:   [13, 13],
-
-  iconSize:     [20, 20],
-  iconAnchor:   [10, 10],
-  popupAnchor:  [0, -10]
-});
-
-
 (async () => {
-  let markersCluster = L.markerClusterGroup.layerSupport().addTo(mymap);
-
-  let response = await fetch('http://test.lan/mapGetStations.php');
+  let response = await fetch('/SetStation.json');
   let dat = await response.json();
-  let id_buff = {};
-  let markers;
-  let net = [];
 
-  for (let i = 0; i < dat.length; i++) {
-    if (arMarker[dat[i].lang.RU.network_en]&&dat[i].lang.RU.network_en) {
-      markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {icon: arMarker[dat[i].lang.RU.network_en]});
-    }
-    else {
-      markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {});
-    }
-
-
-      markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID).on("click", popupOpen);
-      markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });
-      markers.on("mouseover", function(e){e.target.setIcon(onMarker);});
-      markers.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i].lang.RU.network_en]);});
-
-      //фильтр по сети---------------------------------
-      if(!net[dat[i].lang.RU.network_en])
-        net[dat[i].lang.RU.network_en] = L.layerGroup();
-      net[dat[i].lang.RU.network_en].addLayer(markers);
-      //фильтр по сети---------------------------------
-
-    markers._leaflet_id = dat[i].pk_id;
-    id_buff[dat[i].pk_id] = i;
-    markersCluster.addLayer(markers);
-
+for (var i = 0; i < dat.length; i++) {
+  if (dat[i].orgID && arMarker[dat[i].orgID]) {
+    var  marker = L.marker([dat[i].coord.B,dat[i].coord.L],{/*icon: arMarker[dat[i].orgID]*/}).addTo(mymap);
+    marker.bindPopup("Название: " + dat[i].name + "<br/>ID: " + dat[i].ID + "<br/><u>Подробнее...<u/>");
   }
-
-    markersCluster.checkIn(net); // <= this is where the magic happens!
-
-
-  function popupOpen(pop) {
-    this.currentPop = pop;
-    console.log(pop.target._leaflet_id);
-    if(!$('#map-menu').hasClass('on') )
-    {
-      $('#map-menu').toggleClass('on');
-      $('#but').toggleClass('on');
-    }
-
-    let p;
-
-    p = document.getElementById("name").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.name;
-    p = document.getElementById("ID").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.ID;
-    p = document.getElementById("organization").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.organization;
-    p = document.getElementById("network").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.network;
-    p = document.getElementById("id_network").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.id_network;
-    p = document.getElementById("conditional_name_rus").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.conditional_name_rus;
-    p = document.getElementById("conditional_name_lat").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.conditional_name_lat;
-    p = document.getElementById("date_install").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.date_install;
-    p = document.getElementById("destination").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.destination;
-    p = document.getElementById("mode").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.mode;
-
-    //p = document.getElementById("IMG").innerHTML = dat[pop.target._leaflet_id].name;
+  else {
+    var  marker = L.marker([dat[i].coord.B,dat[i].coord.L],{}).addTo(mymap);
+    marker.bindPopup("Название: " + dat[i].name + "<br/>ID: " + dat[i].ID + "<br/><u>Подробнее...<u/>");
   }
-
-
-cont = L.control.layers(baseMaps,net).addTo(mymap);
-//cont.net.addTo(mymap);
+}
 
 })();
 
-
-
 L.control.scale({position: 'bottomright'}).addTo(mymap);
-
+L.control.layers(baseMaps, {}).addTo(mymap);
 mymap.zoomControl.setPosition('topright');
