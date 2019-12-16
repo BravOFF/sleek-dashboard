@@ -85,6 +85,8 @@ let onMarker = L.icon({
   let net = [];
 
   for (let i = 0; i < dat.length; i++) {
+
+    // setTimeout(() => {
     if (arMarker[dat[i].lang.RU.network_en]&&dat[i].lang.RU.network_en) {
       markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {icon: arMarker[dat[i].lang.RU.network_en]});
     }
@@ -93,23 +95,34 @@ let onMarker = L.icon({
     }
 
 
-      markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID).on("click", popupOpen);
-      markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });
-      markers.on("mouseover", function(e){e.target.setIcon(onMarker);});
-      markers.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i].lang.RU.network_en]);});
 
+    markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID);
+
+    if(!dat[i].lang.RU.ID){console.log(dat[i]);}else{
+      // console.log(dat[i]);
+      markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });}
+
+       markers.on("mouseover", function(e){e.target.setIcon(onMarker);});
+       markers.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i].lang.RU.network_en]);});
+
+
+    //
       //фильтр по сети---------------------------------
       if(!net[dat[i].lang.RU.network_en])
         net[dat[i].lang.RU.network_en] = L.layerGroup();
       net[dat[i].lang.RU.network_en].addLayer(markers);
       //фильтр по сети---------------------------------
-
+    //
     markers._leaflet_id = dat[i].pk_id;
     id_buff[dat[i].pk_id] = i;
     markersCluster.addLayer(markers);
 
+// return;
+// }, 500);
+
   }
 
+console.log(dat);
     markersCluster.checkIn(net); // <= this is where the magic happens!
 
 
@@ -139,8 +152,7 @@ let onMarker = L.icon({
   }
 
 
-cont = L.control.layers(baseMaps,net).addTo(mymap);
-//cont.net.addTo(mymap);
+let cont = L.control.layers(baseMaps,net).addTo(mymap);
 
 })();
 
