@@ -24,7 +24,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js/leaflet" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -35,19 +35,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\sleek-dashboard\src" />
+      <recent name="D:\sleek-dashboard\js\leaflet" />
       <recent name="D:\sleek-dashboard\src\assets\plugins\leaflet" />
+      <recent name="D:\sleek-dashboard\_site\assets\plugins\markercluster" />
+      <recent name="D:\sleek-dashboard\js" />
+      <recent name="D:\sleek-dashboard\src\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\sleek-dashboard\src\assets\plugins" />
+      <recent name="D:\sleek-dashboard\_site\assets\plugins" />
+      <recent name="D:\sleek-dashboard\src" />
+      <recent name="D:\sleek-dashboard\src\assets" />
+      <recent name="D:\sleek-dashboard\_site\assets\img\leaflet-map" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView />
       </list>
     </option>
   </component>
@@ -63,6 +68,32 @@
       <updated>1570714256174</updated>
       <workItem from="1570714260931" duration="4136000" />
       <workItem from="1570770891420" duration="11377000" />
+      <workItem from="1570793009767" duration="3410000" />
+      <workItem from="1571657196499" duration="5286000" />
+      <workItem from="1571722705828" duration="15654000" />
+      <workItem from="1571809602060" duration="680000" />
+      <workItem from="1571813785630" duration="13641000" />
+      <workItem from="1571894834228" duration="2657000" />
+      <workItem from="1571902042590" duration="599000" />
+      <workItem from="1571995621171" duration="4494000" />
+      <workItem from="1572247474761" duration="579000" />
+      <workItem from="1572267196090" duration="3768000" />
+      <workItem from="1572328716785" duration="7061000" />
+      <workItem from="1572349217371" duration="7335000" />
+      <workItem from="1572414550495" duration="7252000" />
+      <workItem from="1572499799132" duration="7471000" />
+      <workItem from="1572586559973" duration="9750000" />
+      <workItem from="1572933429142" duration="12679000" />
+      <workItem from="1572954046591" duration="2505000" />
+      <workItem from="1573019469455" duration="6567000" />
+      <workItem from="1573104509218" duration="3432000" />
+      <workItem from="1573192415718" duration="1282000" />
+      <workItem from="1573479154241" duration="2606000" />
+      <workItem from="1573536322078" duration="112000" />
+      <workItem from="1573536885710" duration="619000" />
+      <workItem from="1574237991438" duration="2485000" />
+      <workItem from="1574317955013" duration="2546000" />
+      <workItem from="1574400784466" duration="280000" />
     </task>
     <servers />
   </component>
@@ -78,10 +109,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="479" y="151" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1570715322540" />
-    <state x="661" y="402" key="com.intellij.ide.util.TipDialog" timestamp="1570770900966">
+    <state x="661" y="402" key="com.intellij.ide.util.TipDialog" timestamp="1574400796752">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="661" y="402" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1570770900966" />
+    <state x="661" y="402" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1574400796752" />
     <state x="759" y="390" width="708" height="309" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1570715297591">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
