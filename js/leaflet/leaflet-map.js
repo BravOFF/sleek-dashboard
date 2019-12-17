@@ -78,52 +78,42 @@ let onMarker = L.icon({
 (async () => {
   let markersCluster = L.markerClusterGroup.layerSupport().addTo(mymap);
 
-  let response = await fetch('http://test.lan/mapGetStations.php');
-  let dat = await response.json();
+  //let response = await fetch('http://bitrixdesign.iackvno.local/api_test/getStations/');
+  let response = await fetch('http://test.lan/getStations.php');
+  let dat = await response.json();    //  dat[ID, net, coord]
+  console.log(dat);
   let id_buff = {};
-  let markers;
+  let marker;
   let net = [];
+  let lang = "EN"
+  // for (let i = 0; i < dat.length; i++) {
+  for(let i in dat){
 
-  for (let i = 0; i < dat.length; i++) {
-
-    if (arMarker[dat[i].lang.RU.network_en]&&dat[i].lang.RU.network_en) {
-      markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {icon: arMarker[dat[i].lang.RU.network_en]});
+    if (arMarker[dat[i][1]]&&dat[i][1]) {
+      marker = L.marker([dat[i][2][0],dat[i][2][1]], {icon: arMarker[dat[i][1]]});
     }
     else {
-      markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {});
+      marker = L.marker([dat[i][2][0],dat[i][2][1]], {});
     }
 
+    marker.on("click", popupOpen);
+    marker.on("mouseover", function(e){e.target.setIcon(onMarker);});
+    marker.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i][1]]);});
 
-
-    markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID).on("click", popupOpen);
-
-    // if(!dat[i].lang.RU.ID){console.log(dat[i]);}else{
-    //   // console.log(dat[i]);
-    //   markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });}
-
-       markers.on("mouseover", function(e){e.target.setIcon(onMarker);});
-       markers.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i].lang.RU.network_en]);});
-
-
-    //
       //фильтр по сети---------------------------------
-      if(!net[dat[i].lang.RU.network_en])
-        net[dat[i].lang.RU.network_en] = L.layerGroup();
-      net[dat[i].lang.RU.network_en].addLayer(markers);
+      if(!net[dat[i][1]])
+        net[dat[i][1]] = L.layerGroup();
+      net[dat[i][1]].addLayer(marker);
       //фильтр по сети---------------------------------
-    //
-    markers._leaflet_id = dat[i].pk_id;
-    id_buff[dat[i].pk_id] = i;
-    markersCluster.addLayer(markers);
 
-// return;
-
-
+    marker._leaflet_id = i;
+    markersCluster.addLayer(marker);
+    
   }
 
   markersCluster.eachLayer(function(layer) {
           if(layer instanceof L.Marker)
-              layer.bindTooltip(dat[id_buff[layer._leaflet_id]].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });
+              layer.bindTooltip(dat[layer._leaflet_id][0], {permanent: true, className: "label", offset: [0, 0] });
       })
 
 console.log(dat);
@@ -131,8 +121,10 @@ console.log(dat);
 
 
   function popupOpen(pop) {
+
+    (async () => {
     this.currentPop = pop;
-    console.log(pop.target._leaflet_id);
+    //console.log(pop.target);
     if(!$('#map-menu').hasClass('on') )
     {
       $('#map-menu').toggleClass('on');
@@ -141,18 +133,23 @@ console.log(dat);
 
     let p;
 
-    p = document.getElementById("name").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.name;
-    p = document.getElementById("ID").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.ID;
-    p = document.getElementById("organization").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.organization;
-    p = document.getElementById("network").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.network;
-    p = document.getElementById("id_network").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.id_network;
-    p = document.getElementById("conditional_name_rus").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.conditional_name_rus;
-    p = document.getElementById("conditional_name_lat").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.conditional_name_lat;
-    p = document.getElementById("date_install").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.date_install;
-    p = document.getElementById("destination").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.destination;
-    p = document.getElementById("mode").innerHTML =dat[id_buff[pop.target._leaflet_id]].lang.RU.mode;
+    let station = await fetch('http://test.lan/getStation.php', {method: 'POST',
+                                                                 body: pop.target._leaflet_id});
+    let fullDat = await station.json();
+    console.log(fullDat.name);
+    pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
 
-    //p = document.getElementById("IMG").innerHTML = dat[pop.target._leaflet_id].name;
+    p = document.getElementById("name").innerHTML =fullDat.name;
+    p = document.getElementById("ID").innerHTML =fullDat.ID;
+    p = document.getElementById("organization").innerHTML =fullDat.organization;
+    p = document.getElementById("network").innerHTML =fullDat.network;
+    p = document.getElementById("id_network").innerHTML =fullDat.id_network;
+    p = document.getElementById("conditional_name_rus").innerHTML =fullDat.conditional_name_rus;
+    p = document.getElementById("conditional_name_lat").innerHTML =fullDat.conditional_name_lat;
+    p = document.getElementById("date_install").innerHTML =fullDat.date_install;
+    p = document.getElementById("destination").innerHTML =fullDat.destination;
+    p = document.getElementById("mode").innerHTML =fullDat.mode;
+    })();
   }
 
 
