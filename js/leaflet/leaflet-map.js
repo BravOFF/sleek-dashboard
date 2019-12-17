@@ -86,7 +86,6 @@ let onMarker = L.icon({
 
   for (let i = 0; i < dat.length; i++) {
 
-    // setTimeout(() => {
     if (arMarker[dat[i].lang.RU.network_en]&&dat[i].lang.RU.network_en) {
       markers = L.marker([dat[i].lang.RU.coord.B, dat[i].lang.RU.coord.L], {icon: arMarker[dat[i].lang.RU.network_en]});
     }
@@ -96,11 +95,11 @@ let onMarker = L.icon({
 
 
 
-    markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID);
+    markers.bindPopup("Название: " + dat[i].lang.RU.name + "<br/>ID: " + dat[i].lang.RU.ID).on("click", popupOpen);
 
-    if(!dat[i].lang.RU.ID){console.log(dat[i]);}else{
-      // console.log(dat[i]);
-      markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });}
+    // if(!dat[i].lang.RU.ID){console.log(dat[i]);}else{
+    //   // console.log(dat[i]);
+    //   markers.bindTooltip(dat[i].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });}
 
        markers.on("mouseover", function(e){e.target.setIcon(onMarker);});
        markers.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i].lang.RU.network_en]);});
@@ -118,9 +117,14 @@ let onMarker = L.icon({
     markersCluster.addLayer(markers);
 
 // return;
-// }, 500);
+
 
   }
+
+  markersCluster.eachLayer(function(layer) {
+          if(layer instanceof L.Marker)
+              layer.bindTooltip(dat[id_buff[layer._leaflet_id]].lang.RU.ID, {permanent: true, className: "label", offset: [0, 0] });
+      })
 
 console.log(dat);
     markersCluster.checkIn(net); // <= this is where the magic happens!
