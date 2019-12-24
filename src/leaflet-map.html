@@ -9,7 +9,9 @@ activePage: "leaflet-map"
 plugins: ["leaflet_map"]
 ---
 
-
+<script type="text/javascript">
+	var apiURL = "http://bitrixdesign.iackvno.local/api_test";
+</script>
 							<div class="row">
 								<div class="col-12">
 									<div class="card card-default">
@@ -20,6 +22,8 @@ plugins: ["leaflet_map"]
 														<div class="state-info">
 															<h1 id="name"></h1>
 															<h1 id="ID"></h1>
+															<hr>
+															<!-- <p id="dat"></p> -->
 		                          <p id="organization"></p>
 		                          <p id="network"></p>
 		                          <p id="id_network"></p>
@@ -28,12 +32,15 @@ plugins: ["leaflet_map"]
 		                          <p id="date_install"></p>
 		                          <p id="destination"></p>
 		                          <p id="mode"></p>
+															<p id="department"></p>
+															<p id="address"></p>
 														</div>
                         	</aside>
-
-                        <div id="but" class="">
-                          <a href="javascript:void(0)" onclick="$('#map-menu, #but').toggleClass('on')" onclick="$('#but, #but').toggleClass('on')"></a>
-                        </div>
+													<div id="control">
+                        		<div id="but">
+                       		   	<a href="javascript:void(0)" onclick="$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on')"></a>
+                     	 	  	</div>
+													</div>
                         <div id="mapid"></div>
 
                       </div>
