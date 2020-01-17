@@ -81,14 +81,12 @@ let onMarker = L.icon({
 (async () => {
   let markersClusterGroup = L.markerClusterGroup.layerSupport();//.addTo(mymap);
 
-  //let response = await fetch('http://bitrixdesign.iackvno.local/api_test/getStations/');
   let response = await fetch(apiURL + '/getStations/');
   let dat = await response.json();    //  dat[ID, net, coord]
   let id_buff = {};
   let marker;
   let net = [];
 
-  // for (let i = 0; i < dat.length; i++) {
   for(let i in dat){
 
     if (arMarker[dat[i][1]]&&dat[i][1]) {
@@ -121,6 +119,7 @@ let onMarker = L.icon({
       })
 
     markersClusterGroup.checkIn(net);
+
 
 
   function popupOpen(pop) {
@@ -157,8 +156,8 @@ let onMarker = L.icon({
     p = document.getElementById("department").innerHTML = "Принадлежность: " + fullDat.department;
     p = document.getElementById("address").innerHTML = "Адрес: " + fullDat.address.city + ", " + fullDat.address.street;
 
+    pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
 
-pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
     })();
   }
 
@@ -171,6 +170,20 @@ $('#but').on("click", function(){
   if ($('#map-menu').hasClass('')&& $('#control').hasClass('')) {
         $('#control').toggleClass('closed');
   }
+
+  if ($('#map-menu').hasClass('on')&& $('#control').hasClass('closed on')) {
+        let bound = mymap.getBounds();
+        let shiftM = ((bound.getNorthEast().lng - bound.getNorthWest().lng)+(bound.getSouthEast().lng - bound.getSouthWest().lng))/8;
+        mymap.setView([bound.getCenter().lat, bound.getCenter().lng-shiftM]);
+  }
+
+  if ($('#map-menu').hasClass('')&& $('#control').hasClass('closed')) {
+        let bound = mymap.getBounds();
+        let shiftM = ((bound.getNorthEast().lng - bound.getNorthWest().lng)+(bound.getSouthEast().lng - bound.getSouthWest().lng))/8;
+        mymap.setView([bound.getCenter().lat, bound.getCenter().lng+shiftM]);
+  }
 })
+
+
 
 mymap.zoomControl.setPosition('topright');
