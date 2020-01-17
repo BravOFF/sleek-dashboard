@@ -673,7 +673,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   width:100%;
   position: absolute;
   display: flex;
-
 }
 
 
@@ -685,7 +684,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	left: -40%;
   display: block;
   transition: all ease 0.5s;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #map-menu::-webkit-scrollbar{
@@ -707,7 +706,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 #map-menu.on{
   display: block;
   left: 0px;
-  border-right-width: 10px;
+  border-right-width: 5px;
   border-right-style: solid;
   border-right-color: rgba(76, 132, 255, 0.5);
   background-clip: padding-box;
@@ -730,7 +729,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 #control, #control.closed{
 	display: block;
-	align-self: center;
+	align-self: flex-start;
   z-index: 500;
 	left: -40%;
   transition: all ease 0.5s;
@@ -743,30 +742,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 #but{
-  background-color: rgba(76, 132, 255, 0.5);
-  display: block;
-  height: 30px;
-  width: 10px;
+  display: flex;
+  height: 34px;
+  width: 34px;
   align-self: center;
   z-index: 500;
   transition: all ease 0.5s;
   position: relative;
-  border-radius: 0 5px 5px 0 ;
-}
-
-
-#but:hover a{
-	width: 20px;
-}
-
-#but:hover{
-	width: 20px;
-}
-
-#but a{
-  height: 30px;
-  width: 10px;
-  display: block;
+	margin: 10px 10px;
 }
 
 .state-info {
@@ -777,4 +760,101 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background-color: #124297;
   color: #ffffff;
   padding: 0px 5px;
+}
+
+
+#menu-toggle span {
+  display: block;
+  background: #fbfbfb;
+  border-radius: 2px;
+  transition: .25s ease-in-out;
+}
+
+#menu-toggle {
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+  background: #124297;
+  border-radius: 4px;
+	background-clip: padding-box;
+	border: 2px solid rgba(0,0,0,0.2);
+	transition: all ease 0.5s;
+
+}
+#menu-toggle:hover {
+  background: #1d2647;
+	border-radius: 4px;
+	background-clip: padding-box;
+	border: 2px solid rgba(0,0,0,0.2);
+
+}
+#menu-toggle #hamburger {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#menu-toggle #hamburger span {
+  width: 20px;
+  height: 4px;
+  position: relative;
+  top: 0px;
+  left: 4px;
+  margin: 4px 0;
+}
+#menu-toggle #hamburger span:nth-child(1) {
+  width: 10px;
+  transition-delay: .5s;
+}
+#menu-toggle #hamburger span:nth-child(2) {
+  transition-delay: .625s;
+}
+#menu-toggle #hamburger span:nth-child(3) {
+  width: 10px;
+	left: 14px;
+  transition-delay: .75s;
+}
+#menu-toggle #cross {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: rotate(45deg);
+}
+#menu-toggle #cross span:nth-child(1) {
+  height: 0%;
+  width: 4px;
+  position: absolute;
+  top: 10%;
+  left: 12px;
+  transition-delay: 0s;
+}
+#menu-toggle #cross span:nth-child(2) {
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  left: 10%;
+  top: 12px;
+  transition-delay: .25s;
+}
+
+#menu-toggle.open #hamburger span {
+  width: 0%;
+}
+#menu-toggle.open #hamburger span:nth-child(1) {
+  transition-delay: 0s;
+}
+#menu-toggle.open #hamburger span:nth-child(2) {
+  transition-delay: .125s;
+}
+#menu-toggle.open #hamburger span:nth-child(3) {
+  transition-delay: .25s;
+}
+#menu-toggle.open #cross span:nth-child(1) {
+  height: 80%;
+  transition-delay: .625s;
+}
+#menu-toggle.open #cross span:nth-child(2) {
+  width: 80%;
+  transition-delay: .375s;
 }

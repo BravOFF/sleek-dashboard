@@ -17,6 +17,7 @@ var baseMaps = {
 };
 
 
+
 var southWest = L.latLng(-300, -200),
     northEast = L.latLng(300, 200);
 var bounds = L.latLngBounds(southWest, northEast);
@@ -25,6 +26,7 @@ mymap.setMaxBounds(bounds);
 mymap.on('drag', function() {
   mymap.panInsideBounds(bounds, { animate: false });
 });
+
 
 let arMarker = {
 
@@ -77,7 +79,7 @@ let onMarker = L.icon({
 
 
 (async () => {
-  let markersCluster = L.markerClusterGroup.layerSupport().addTo(mymap);
+  let markersClusterGroup = L.markerClusterGroup.layerSupport();//.addTo(mymap);
 
   //let response = await fetch('http://bitrixdesign.iackvno.local/api_test/getStations/');
   let response = await fetch(apiURL + '/getStations/');
@@ -99,56 +101,53 @@ let onMarker = L.icon({
     marker.bindPopup();
     marker.on("mouseover", function(e){e.target.setIcon(onMarker);});
     marker.on("mouseout", function(e){e.target.setIcon(arMarker[dat[i][1]]);});
-
     marker.on("click", popupOpen);
 
       //фильтр по сети---------------------------------
       if(!net[dat[i][1]])
         net[dat[i][1]] = L.layerGroup();
+
       net[dat[i][1]].addLayer(marker);
       //фильтр по сети---------------------------------
 
     marker._leaflet_id = i;
-    markersCluster.addLayer(marker);
+    markersClusterGroup.addLayer(net[dat[i][1]]);
 
   }
 
-  markersCluster.eachLayer(function(layer) {
+  markersClusterGroup.eachLayer(function(layer) {
           if(layer instanceof L.Marker)
               layer.bindTooltip(dat[layer._leaflet_id][0], {permanent: true, className: "label", offset: [0, 0] });
       })
 
-    markersCluster.checkIn(net); // <= this is where the magic happens!
+    markersClusterGroup.checkIn(net);
 
 
   function popupOpen(pop) {
     this.currentPop = pop;
-    this._map.setView(this._latlng);
-    (async () => {
-
-
-    //console.log(pop.target);
     if(!$('#map-menu').hasClass('on') && !$('#control').hasClass('closed'))
     {
       $('#map-menu').toggleClass('on');
       $('#control').toggleClass('on');
+      $('#menu-toggle').toggleClass('open');
     }
-
+    let shift = 0;
+    if($('#map-menu').hasClass('on')){
+      let bound = this._map.getBounds();
+      shift = (bound.getNorthEast().lng - bound.getNorthWest().lng)/4;
+    }
+    this._map.setView([this._latlng.lat, this._latlng.lng-shift]);
+    console.log(this);
+    (async () => {
 
     let p;
-
     let lang = "EN";
     let station = await fetch(apiURL + '/getStation/?id='+pop.target._leaflet_id+'&lang='+lang);
     let fullDat = await station.json();
 
-
-
-
-
-
     p = document.getElementById("name").innerHTML = "Название: " + fullDat.name;
     p = document.getElementById("ID").innerHTML = "ID: " + fullDat.ID;
-    p = document.getElementById("organization").innerHTML = "Организаци: " + fullDat.organization;
+    p = document.getElementById("organization").innerHTML = "Организация: " + fullDat.organization;
     p = document.getElementById("network").innerHTML = "Сеть: " + fullDat.network;
     p = document.getElementById("id_network").innerHTML = "ID в сети: " + fullDat.id_network;
     p = document.getElementById("conditional_name_rus").innerHTML = "Условное название (RUS): " + fullDat.conditional_name_rus;
@@ -156,19 +155,16 @@ let onMarker = L.icon({
     p = document.getElementById("date_install").innerHTML = "Дата установки: " + fullDat.date_install;
     p = document.getElementById("destination").innerHTML = "Назначение: " + fullDat.destination;
     p = document.getElementById("department").innerHTML = "Принадлежность: " + fullDat.department;
-    p = document.getElementById("address").innerHTML = "Город: " + fullDat.address.city;
+    p = document.getElementById("address").innerHTML = "Адрес: " + fullDat.address.city + ", " + fullDat.address.street;
 
 
-pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID).addTo(mymap);
+pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
     })();
-
-
-
   }
 
   let cont = L.control.layers(baseMaps,net,'sortLayers').addTo(mymap).expand();
 
-
+  markersClusterGroup.addTo(mymap);
 })();
 
 $('#but').on("click", function(){
@@ -176,9 +172,5 @@ $('#but').on("click", function(){
         $('#control').toggleClass('closed');
   }
 })
-
-
-
-L.control.scale({position: 'bottomright'}).addTo(mymap);
 
 mymap.zoomControl.setPosition('topright');

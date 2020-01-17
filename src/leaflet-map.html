@@ -38,7 +38,18 @@ plugins: ["leaflet_map"]
                         	</aside>
 													<div id="control">
                         		<div id="but">
-                       		   	<a href="javascript:void(0)" onclick="$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on')"></a>
+															<div id="menu-toggle" href="javascript:void(0)" onclick="$(this).toggleClass('open');$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on');">
+													      <div id="hamburger">
+													        <span></span>
+													        <span></span>
+													        <span></span>
+													      </div>
+													      <div id="cross">
+													        <span></span>
+													        <span></span>
+													      </div>
+													    </div>
+                       		   	<!-- <a href="javascript:void(0)" onclick="$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on')"></a> -->
                      	 	  	</div>
 													</div>
                         <div id="mapid"></div>
