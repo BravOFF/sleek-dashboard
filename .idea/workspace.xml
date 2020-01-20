@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73a9686f-23a6-4e03-bf4b-76046f6c5aa1" name="Default Changelist" comment="" />
+    <list default="true" id="c92401f2-aa19-4757-8722-e4f68134d9d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/sleek.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/sleek.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic-input.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic-input.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +20,15 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="FCND-Web-Dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1S0xL9yasvWCNqyPN7BXliY89SD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -34,13 +47,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\sleek-dashboard\js\leaflet" />
-      <recent name="D:\sleek-dashboard\src\assets\plugins\leaflet" />
-      <recent name="D:\sleek-dashboard\_site\assets\plugins\markercluster" />
-      <recent name="D:\sleek-dashboard\js" />
-      <recent name="D:\sleek-dashboard\src\assets\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\sleek-dashboard\src\assets\plugins" />
       <recent name="D:\sleek-dashboard\_site\assets\plugins" />
@@ -48,6 +54,30 @@
       <recent name="D:\sleek-dashboard\src\assets" />
       <recent name="D:\sleek-dashboard\_site\assets\img\leaflet-map" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\sleek-dashboard\js\leaflet" />
+      <recent name="D:\sleek-dashboard\src\assets\plugins\leaflet" />
+      <recent name="D:\sleek-dashboard\_site\assets\plugins\markercluster" />
+      <recent name="D:\sleek-dashboard\js" />
+      <recent name="D:\sleek-dashboard\src\assets\img" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -100,22 +130,45 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="334" key="FileChooserDialogImpl" timestamp="1570716990372">
-      <screen x="0" y="0" width="1920" height="1160" />
+    <state x="2012" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1579523983217">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="334" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1570716990372" />
-    <state x="479" y="151" key="SettingsEditor" timestamp="1570715322540">
-      <screen x="0" y="0" width="1920" height="1160" />
+    <state x="2012" y="92" width="1736" height="896" key="DiffContextDialog/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579523983217" />
+    <state width="1876" height="341" key="GridCell.Tab.0.bottom" timestamp="1579526190667">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="479" y="151" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1570715322540" />
+    <state width="1876" height="341" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579526190667" />
+    <state width="1876" height="341" key="GridCell.Tab.0.center" timestamp="1579526190667">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579526190667" />
+    <state width="1876" height="341" key="GridCell.Tab.0.left" timestamp="1579526190667">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579526190667" />
+    <state width="1876" height="341" key="GridCell.Tab.0.right" timestamp="1579526190667">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579526190667" />
+    <state x="2012" y="92" width="1736" height="896" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1579523983217">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2012" y="92" width="1736" height="896" key="com.intellij.dvcs.ui.CompareBranchesDialog/1920.0.1920.1050/0.0.1920.1050/-1280.56.1280.1024@1920.0.1920.1050" timestamp="1579523983217" />
     <state x="661" y="402" key="com.intellij.ide.util.TipDialog" timestamp="1574400796752">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="661" y="402" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1574400796752" />
-    <state x="759" y="390" width="708" height="309" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1570715297591">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="759" y="390" width="708" height="309" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1570715297591" />
   </component>
 </project>
