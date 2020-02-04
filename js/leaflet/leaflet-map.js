@@ -33,56 +33,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let arMarker = {
 
-      "RZD": L.icon({
-        iconUrl: 'assets/plugins/leaflet/images/marker1.png',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
-        popupAnchor: [0, -8]
+      "RZD": L.divIcon({
+        className: 'mdi mdi-radiobox-marked rzd',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
       }),
 
-      "IGS": L.icon({
-        iconUrl: 'assets/plugins/leaflet/images/marker2.png',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
-        popupAnchor: [0, -8]
+      "IGS": L.divIcon({
+        className: 'mdi mdi-radiobox-marked igs',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
       }),
 
-      "WORT": L.icon({
-        iconUrl: 'assets/plugins/leaflet/images/marker3.png',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
-        popupAnchor: [0, -8]
+      "WORT": L.divIcon({
+        className: 'mdi mdi-radiobox-marked wort',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
       }),
 
-      "FAGS": L.icon({
-        iconUrl: 'assets/plugins/leaflet/images/marker4.png',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
-        popupAnchor: [0, -8]
+      "FAGS": L.divIcon({
+        className: 'mdi mdi-radiobox-marked fags',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
       }),
 
-      "EPN": L.icon({
-        iconUrl: 'assets/plugins/leaflet/images/marker5.png',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
-        popupAnchor: [0, -8]
+      "EPN": L.divIcon({
+        className: 'mdi mdi-radiobox-marked epn',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
       }),
     };
 
-    let onMarker = L.icon({
-      iconUrl: 'assets/plugins/leaflet/images/marker5.png',
-      shadowUrl: 'assets/plugins/leaflet/images/markerShadow.png',
-      shadowSize: [26, 26],
-      shadowAnchor: [13, 13],
-
-      iconSize: [20, 20],
-      iconAnchor: [10, 10],
-      popupAnchor: [0, -10]
+    let onMarker = L.divIcon({
+      className: 'mdi mdi-circle-slice-8 ACTIVE',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+      popupAnchor: [0, -12]
     });
 
 
     (async () => {
       let markersClusterGroup = L.markerClusterGroup.layerSupport();//.addTo(mymap);
+
 
       let response = await fetch(apiURL + '/getStations/');
       let dat = await response.json();    //  dat[ID, net, coord]
@@ -121,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       markersClusterGroup.eachLayer(function (layer) {
         if (layer instanceof L.Marker)
-          layer.bindTooltip(dat[layer._leaflet_id][0], {permanent: true, className: "label", offset: [0, 0]});
+          layer.bindTooltip(dat[layer._leaflet_id][0], {permanent: true, className: "label", offset: [0, 0], opacity: 1});
       })
 
       markersClusterGroup.checkIn(net);

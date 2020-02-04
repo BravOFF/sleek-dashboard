@@ -561,8 +561,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* div icon */
 
 .leaflet-div-icon {
-	background: #fff;
-	border: 1px solid #666;
+	/* background: #fff; */
+	/* border: 1px solid #666; */
 	}
 
 
@@ -857,4 +857,47 @@ svg.leaflet-image-layer.leaflet-interactive path {
 #menu-toggle.open #cross span:nth-child(2) {
   width: 80%;
   transition-delay: .375s;
+}
+
+
+
+
+.leaflet-marker-icon
+{
+	text-align:center;
+	line-height:24px;
+	font-size: 24px;
+	vertical-align: middle;
+	transition: all ease-in-out 0.2s;
+}
+
+
+.mdi.rzd
+{
+    color:rgb(29, 181, 230);
+}
+
+.mdi.igs
+{
+    color:rgb(87, 186, 58);
+}
+
+.mdi.wort
+{
+    color:rgb(193, 187, 43);
+}
+
+.mdi.fags
+{
+    color:rgb(135, 39, 244);
+}
+
+.mdi.epn
+{
+    color:rgb(128, 128, 128);
+}
+
+.mdi.ACTIVE
+{
+    color:rgba(156, 28, 0, 0.88);
 }
