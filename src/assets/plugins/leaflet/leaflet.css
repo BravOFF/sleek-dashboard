@@ -685,6 +685,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   display: block;
   transition: all ease 0.5s;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #map-menu::-webkit-scrollbar{
@@ -706,6 +707,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 #map-menu.on{
   display: block;
   left: 0px;
+	min-width: 350px;
   border-right-width: 5px;
   border-right-style: solid;
   border-right-color: rgba(76, 132, 255, 0.5);
@@ -721,10 +723,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 #map-menu h1{
-  font-size: xx-large;
+  font-size: x-large;
 	margin: 5px 5px;
-  color: white;
-  font-weight: bolder;
+  color: black;
+  font-weight: 550;
 }
 
 #control, #control.closed{
@@ -750,10 +752,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   transition: all ease 0.5s;
   position: relative;
 	margin: 10px 10px;
-}
-
-.state-info {
-	margin: 10px;
 }
 
 .label{
@@ -860,7 +858,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 
-
+.state-info{
+	display: block;
+}
 
 .leaflet-marker-icon
 {
@@ -871,6 +871,40 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	transition: all ease-in-out 0.2s;
 }
 
+.image{
+	display: block;
+    width: 100%;
+		overflow: hidden;
+		box-shadow: 0 10px 8px rgba(0, 0, 0, .2);
+		margin-bottom: 10px;
+}
+
+.image img{
+	width: 100%;
+	transform: scale(1);
+	transition: .7s ease-in-out;
+}
+
+.image img:hover{
+	transform: scale(1.2);
+}
+
+.divImg{
+	width: 100%;
+	display: flex;
+	position: relative;
+}
+
+.mainInfo{
+	background: linear-gradient(180deg, rgb(159, 185, 244) 0%, rgba(18, 66, 151, 0.59) 140%);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+	position: sticky;
+	top: 0px;
+	z-index: 5;
+	margin: 0px;
+	padding: 5px;
+	font-size: bold;
+}
 
 .mdi.rzd
 {
