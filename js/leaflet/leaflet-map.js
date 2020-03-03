@@ -82,6 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let response = await fetch(apiURL + '/getStations/');
       let dat = await response.json();    //  dat[ID, net, coord]
+
+
+
       let marker;
       let net = [];
 
@@ -151,7 +154,20 @@ document.addEventListener("DOMContentLoaded", () => {
           p = document.getElementById("destination").innerHTML = "Назначение: " + fullDat.destination + "<hr>";
           p = document.getElementById("department").innerHTML = "Принадлежность: " + fullDat.department + "<hr>";
           p = document.getElementById("address").innerHTML = "Адрес: " + fullDat.address.city + ", " + fullDat.address.street + "<hr>";
-          document.SatImg.src = 'assets/img/IPGabak.png';
+
+
+          let statPic = await fetch('http://test.lan/AllPic.php?pk_id=' + pop.target._leaflet_id + '&target=map')
+          let jsonPic = await statPic.json();
+          console.log(jsonPic);
+          if (jsonPic.length!=0) {
+            document.SatImg.src = 'http://test.lan/getIMG.php?pk_id=' + jsonPic[0];
+          }
+          else {
+            document.SatImg.src = 'assets/img/favicon.png';
+          }
+
+
+
 
           pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
 
