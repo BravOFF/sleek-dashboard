@@ -282,6 +282,11 @@
             "name": "404",
             "label": "404 Page",
             "link": "404.html"
+          },
+          {
+            "name": "Swagger",
+            "label": "Swagger page",
+            "link": "swagger.html"
           }
         ]
       }
