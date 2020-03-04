@@ -175,3 +175,58 @@ $(document).ready(function() {
     });
 
 });
+
+
+
+
+import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist'
+
+import {SwaggerTranslator} from './swagger/translator'
+window.SwaggerTranslator = SwaggerTranslator;
+import ru from './swagger/lang/ru'
+
+// console.log(ru);
+
+
+window.SwaggerTranslator.learn(ru);
+
+window.onload = function() {
+  if (document.getElementById('swagger-ui')) {
+    // Build a system
+    window.SwaggerUIBundle = SwaggerUIBundle({
+      // url: "https://petstore.swagger.io/v2/swagger.json",
+      url: "http://bitrixdesign.iackvno.local/api_test/",
+      dom_id: '#swagger-ui',
+      deepLinking: false,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        // SwaggerUIBundle.presets.ApisPreset,
+        SwaggerUIStandalonePreset
+      ],
+      onComplete: function(){
+        // console.log(ru);
+
+        if (window.SwaggerTranslator) {
+          window.SwaggerTranslator.translate('#swagger-ui');
+        }
+      },
+
+      docExpansion: "none",
+      jsonEditor: false,
+      defaultModelRendering: 'schema',
+      showRequestHeaders: false,
+      showOperationIds: false,
+
+
+      plugins: [
+        // SwaggerUIBundle.plugins.DownloadUrl
+      ],
+      layout: "BaseLayout",
+      // supportedSubmitMethods: ["get", "put", "post", "delete", "options", "head", "patch", "trace"]
+      // layout: "StandaloneLayout",
+    });
+
+    window.SwaggerUIBundle.loadyy;
+
+  }
+};

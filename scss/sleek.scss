@@ -3,6 +3,7 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 //@import "../node_modules/leaflet/dist/leaflet.css";
 @import "../node_modules/bootstrap-select/sass/bootstrap-select.scss";
+@import  "swagger-ui";
 
 @import 'reboot';
 @import 'utilities/spacing';
@@ -49,3 +50,5 @@
 @import 'lada-button';
 @import 'github';
 @import 'rtl';
+
+@import "custom";

@@ -336,6 +336,13 @@
         "location": "Others"
       } ,
       
+      {
+        "label": "Swagger page",
+        "link": "swagger.html",
+        "tags": "",
+        "location": "Others"
+      } ,
+      
       
     
 

@@ -62,7 +62,9 @@
         "jquery": "^3.4.1",
         "leaflet": "^1.6.0",
         "leaflet.markercluster": "^1.4.1",
-        "popper.js": "^1.16.1"
+        "popper.js": "^1.16.1",
+        "swagger-ui": "^3.25.0",
+        "swagger-ui-dist": "^3.25.0"
     },
     "devDependencies": {
         "node-sass": "^4.13.1",
