@@ -11,7 +11,7 @@
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
-  <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
 
   <!-- PLUGINS CSS STYLE -->
@@ -25,8 +25,6 @@
 
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
-
-  
 
   <!-- FAVICON -->
   <link href="assets/img/favicon.png" rel="shortcut icon" />
@@ -52,8 +50,6 @@
     NProgress.start();
   </script>
 
-  <div class="mobile-sticky-body-overlay"></div>
-
   
 
   <div class="wrapper">
@@ -70,7 +66,7 @@
       </svg>
       <i class="mdi mdi-github-circle"></i>
     </a>
-    
+
             <!--
           ====================================
           ——— LEFT SIDEBAR WITH FOOTER
@@ -138,6 +134,36 @@
                                 <span class="nav-text">Analytics</span>
                                 
                                 <span class="badge badge-success">new</span>
+                                
+                              </a>
+                            </li>
+                          
+                        
+
+                        
+                      </div>
+                    </ul>
+                  </li>
+                
+
+                
+
+                
+                  <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                      aria-expanded="false" aria-controls="app">
+                      <i class="mdi mdi-pencil-box-multiple"></i>
+                      <span class="nav-text">App</span> <b class="caret"></b>
+                    </a>
+                    <ul  class="collapse"  id="app"
+                      data-parent="#sidebar-menu">
+                      <div class="sub-menu">
+                        
+                        
+                          
+                            <li >
+                              <a class="sidenav-item-link" href="chat.html">
+                                <span class="nav-text">Chat</span>
                                 
                               </a>
                             </li>
@@ -333,6 +359,10 @@
                                 <a href="vector-map.html">Vector Map</a>
                               </li>
                               
+                              <li >
+                                <a href="leaflet-map.html">Leaflet Map</a>
+                              </li>
+                              
                             </div>
                           </ul>
                         </li>
@@ -455,11 +485,15 @@
                             <div class="sub-menu">
                               
                               <li >
-                                <a href="invoice.html">invoice</a>
+                                <a href="invoice.html">Invoice</a>
                               </li>
                               
                               <li >
                                 <a href="404.html">404 Page</a>
+                              </li>
+                              
+                              <li >
+                                <a href="swagger.html">Swagger page</a>
                               </li>
                               
                             </div>
@@ -644,9 +678,8 @@
 
             </div>
 
-            <hr class="separator" />
-
             <div class="sidebar-footer">
+              <hr class="separator mb-0" />
               <div class="sidebar-footer-content">
                 <h6 class="text-uppercase">
                   Cpu Uses <span class="float-right">40%</span>
@@ -673,7 +706,6 @@
           </div>
         </aside>
 
-    
 
     <div class="page-wrapper">
                 <!-- Header -->
@@ -740,6 +772,9 @@
                       </li>
                     </ul>
                   </li>
+                  <li class="right-sidebar-in right-sidebar-2-menu">
+                    <i class="mdi mdi-settings"></i>
+                  </li>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -768,8 +803,8 @@
                       <li>
                         <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
                       </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                      <li class="right-sidebar-in">
+                        <a href="javascript:0"> <i class="mdi mdi-settings"></i> Setting </a>
                       </li>
 
                       <li class="dropdown-footer">
@@ -1175,9 +1210,9 @@
                           <tr>
                             <th>Order ID</th>
                             <th>Product Name</th>
-                            <th class="d-none d-md-table-cell">Units</th>
-                            <th class="d-none d-md-table-cell">Order Date</th>
-                            <th class="d-none d-md-table-cell">Order Cost</th>
+                            <th class="d-none d-lg-table-cell">Units</th>
+                            <th class="d-none d-lg-table-cell">Order Date</th>
+                            <th class="d-none d-lg-table-cell">Order Cost</th>
                             <th>Status</th>
                             <th></th>
                           </tr>
@@ -1188,9 +1223,9 @@
                             <td >
                               <a class="text-dark" href=""> Coach Swagger</a>
                             </td>
-                            <td class="d-none d-md-table-cell">1 Unit</td>
-                            <td class="d-none d-md-table-cell">Oct 20, 2018</td>
-                            <td class="d-none d-md-table-cell">$230</td>
+                            <td class="d-none d-lg-table-cell">1 Unit</td>
+                            <td class="d-none d-lg-table-cell">Oct 20, 2018</td>
+                            <td class="d-none d-lg-table-cell">$230</td>
                             <td >
                               <span class="badge badge-success">Completed</span>
                             </td>
@@ -1213,9 +1248,9 @@
                             <td >
                               <a class="text-dark" href=""> Toddler Shoes, Gucci Watch</a>
                             </td>
-                            <td class="d-none d-md-table-cell">2 Units</td>
-                            <td class="d-none d-md-table-cell">Nov 15, 2018</td>
-                            <td class="d-none d-md-table-cell">$550</td>
+                            <td class="d-none d-lg-table-cell">2 Units</td>
+                            <td class="d-none d-lg-table-cell">Nov 15, 2018</td>
+                            <td class="d-none d-lg-table-cell">$550</td>
                             <td >
                               <span class="badge badge-warning">Delayed</span>
                             </td>
@@ -1238,9 +1273,9 @@
                             <td >
                               <a class="text-dark" href=""> Hat Black Suits</a>
                             </td>
-                            <td class="d-none d-md-table-cell">1 Unit</td>
-                            <td class="d-none d-md-table-cell">Nov 18, 2018</td>
-                            <td class="d-none d-md-table-cell">$325</td>
+                            <td class="d-none d-lg-table-cell">1 Unit</td>
+                            <td class="d-none d-lg-table-cell">Nov 18, 2018</td>
+                            <td class="d-none d-lg-table-cell">$325</td>
                             <td >
                               <span class="badge badge-warning">On Hold</span>
                             </td>
@@ -1264,9 +1299,9 @@
                             <td >
                               <a class="text-dark" href=""> Backpack Gents, Swimming Cap Slin</a>
                             </td>
-                            <td class="d-none d-md-table-cell">5 Units</td>
-                            <td class="d-none d-md-table-cell">Dec 13, 2018</td>
-                            <td class="d-none d-md-table-cell">$200</td>
+                            <td class="d-none d-lg-table-cell">5 Units</td>
+                            <td class="d-none d-lg-table-cell">Dec 13, 2018</td>
+                            <td class="d-none d-lg-table-cell">$200</td>
                             <td >
                               <span class="badge badge-success">Completed</span>
                             </td>
@@ -1289,9 +1324,9 @@
                             <td >
                               <a class="text-dark" href=""> Speed 500 Ignite</a>
                             </td>
-                            <td class="d-none d-md-table-cell">1 Unit</td>
-                            <td class="d-none d-md-table-cell">Dec 23, 2018</td>
-                            <td class="d-none d-md-table-cell">$150</td>
+                            <td class="d-none d-lg-table-cell">1 Unit</td>
+                            <td class="d-none d-lg-table-cell">Dec 23, 2018</td>
+                            <td class="d-none d-lg-table-cell">$150</td>
                             <td >
                               <span class="badge badge-danger">Cancelled</span>
                             </td>
@@ -1320,6 +1355,66 @@
 
         
 
+        <div class="right-sidebar-2">
+    <div class="right-sidebar-container-2">
+      <div class="slim-scroll-right-sidebar-2">
+
+      <div class="right-sidebar-2-header">
+        <h2>Layout Settings</h2>
+        <p>User Interface Settings</p>
+        <div class="btn-close-right-sidebar-2">
+          <i class="mdi mdi-window-close"></i>
+        </div>
+      </div>
+
+      <div class="right-sidebar-2-body">
+        <span class="right-sidebar-2-subtitle">Header Layout</span>
+        <div class="no-col-space">
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 header-fixed-to btn-right-sidebar-2-active">Fixed</a>
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 header-static-to">Static</a>
+        </div>
+
+        <span class="right-sidebar-2-subtitle">Sidebar Layout</span>
+        <div class="no-col-space">
+          <select class="right-sidebar-2-select" id="sidebar-option-select">
+            <option value="sidebar-fixed">Fixed Default</option>
+            <option value="sidebar-fixed-minified">Fixed Minified</option>
+            <option value="sidebar-fixed-offcanvas">Fixed Offcanvas</option>
+            <option value="sidebar-static">Static Default</option>
+            <option value="sidebar-static-minified">Static Minified</option>
+            <option value="sidebar-static-offcanvas">Static Offcanvas</option>
+          </select>
+        </div>
+
+        <span class="right-sidebar-2-subtitle">Header Background</span>
+        <div class="no-col-space">
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 btn-right-sidebar-2-active header-light-to">Light</a>
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 header-dark-to">Dark</a>
+        </div>
+
+        <span class="right-sidebar-2-subtitle">Navigation Background</span>
+        <div class="no-col-space">
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 btn-right-sidebar-2-active sidebar-dark-to">Dark</a>
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 sidebar-light-to">Light</a>
+        </div>
+
+        <span class="right-sidebar-2-subtitle">Direction</span>
+        <div class="no-col-space">
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 btn-right-sidebar-2-active ltr-to">LTR</a>
+          <a href="javascript:void(0);" class="btn-right-sidebar-2 rtl-to">RTL</a>
+        </div>
+
+        <div class="d-flex justify-content-center" style="padding-top: 30px">
+          <div id="reset-options" style="width: auto; cursor: pointer" class="btn-right-sidebar-2 btn-reset">Reset
+            Settings</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
       </div>
 
@@ -1346,9 +1441,6 @@
   </div>
 
   <script src="assets/plugins/jquery/jquery.min.js"></script>
-
-
-
 <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
 <script src="assets/plugins/jekyll-search.min.js"></script>
 

@@ -23,6 +23,18 @@
   
     
       
+      {
+        "label": "Chat",
+        "link": "chat.html",
+        "tags": "",
+        "location": "App"
+      },
+      
+    
+
+  
+    
+      
       
       {
         "label": "Alert",
@@ -239,6 +251,13 @@
         "location": "Maps"
       } ,
       
+      {
+        "label": "Leaflet Map",
+        "link": "leaflet-map.html",
+        "tags": "",
+        "location": "Maps"
+      } ,
+      
       
     
       
@@ -304,7 +323,7 @@
       
       
       {
-        "label": "invoice",
+        "label": "Invoice",
         "link": "invoice.html",
         "tags": "",
         "location": "Others"
@@ -313,6 +332,13 @@
       {
         "label": "404 Page",
         "link": "404.html",
+        "tags": "",
+        "location": "Others"
+      } ,
+      
+      {
+        "label": "Swagger page",
+        "link": "swagger.html",
         "tags": "",
         "location": "Others"
       } ,

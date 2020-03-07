@@ -9,17 +9,29 @@ activePage: "leaflet-map"
 plugins: ["leaflet_map"]
 ---
 
-
+<script type="text/javascript">
+	var apiURL = "http://bitrixdesign.iackvno.local/api_test";
+</script>
 							<div class="row">
 								<div class="col-12">
 									<div class="card card-default">
+
 										<div class="card-body" style="height: 70vh">
                       <div class="map-card">
-
                         	<aside id="map-menu" class="">
 														<div class="state-info">
-															<h1 id="name"></h1>
-															<h1 id="ID"></h1>
+															<div class="mainInfo">
+																<h1 id="name"></h1>
+																<h1 id="ID"></h1>
+															</div>
+															<!-- <p id="dat"></p> -->
+															<div class="divImg">
+																<div class="image">
+																	<img name="SatImg" src="" alt="">
+																</div>
+
+															</div>
+															<p id="info"></p>
 		                          <p id="organization"></p>
 		                          <p id="network"></p>
 		                          <p id="id_network"></p>
@@ -28,16 +40,31 @@ plugins: ["leaflet_map"]
 		                          <p id="date_install"></p>
 		                          <p id="destination"></p>
 		                          <p id="mode"></p>
+															<p id="department"></p>
+															<p id="address"></p>														
 														</div>
                         	</aside>
-
-                        <div id="but" class="">
-                          <a href="javascript:void(0)" onclick="$('#map-menu, #but').toggleClass('on')" onclick="$('#but, #but').toggleClass('on')"></a>
-                        </div>
+													<div id="control">
+                        		<div id="but">
+															<div id="menu-toggle" href="javascript:void(0)" onclick="$(this).toggleClass('open');$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on');">
+													      <div id="hamburger">
+													        <span></span>
+													        <span></span>
+													        <span></span>
+													      </div>
+													      <div id="cross">
+													        <span></span>
+													        <span></span>
+													      </div>
+													    </div>
+                       		   	<!-- <a href="javascript:void(0)" onclick="$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on')"></a> -->
+                     	 	  	</div>
+													</div>
                         <div id="mapid"></div>
 
                       </div>
 										</div>
+
 									</div>
 								</div>
 							</div>

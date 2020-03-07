@@ -561,8 +561,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* div icon */
 
 .leaflet-div-icon {
-	background: #fff;
-	border: 1px solid #666;
+	/* background: #fff; */
+	/* border: 1px solid #666; */
 	}
 
 
@@ -673,18 +673,19 @@ svg.leaflet-image-layer.leaflet-interactive path {
   width:100%;
   position: absolute;
   display: flex;
-
 }
+
 
 #map-menu{
   background-color: #124297;
   z-index: 500;
   position: relative;
-  width: 50%;
-  left: -50%;
+  width: 40%;
+	left: -40%;
   display: block;
   transition: all ease 0.5s;
-	overflow-y: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #map-menu::-webkit-scrollbar{
@@ -706,65 +707,233 @@ svg.leaflet-image-layer.leaflet-interactive path {
 #map-menu.on{
   display: block;
   left: 0px;
-  border-right-width: 10px;
+	min-width: 350px;
+  border-right-width: 5px;
   border-right-style: solid;
   border-right-color: rgba(76, 132, 255, 0.5);
   background-clip: padding-box;
+	transition: all ease 0.5s;
 }
 
 #map-menu p{
   font-size: medium;
-  margin: 0px 10px;
+  margin: 5px 10px;
   color: white;
   font-weight: lighter;
 }
 
 #map-menu h1{
-  font-size: xx-large;
-	margin: 0px 5px;
-  color: white;
-  font-weight: bolder;
+  font-size: x-large;
+	margin: 5px 5px;
+  color: black;
+  font-weight: 550;
+}
+
+#control, #control.closed{
+	display: block;
+	align-self: flex-start;
+  z-index: 500;
+	left: -40%;
+  transition: all ease 0.5s;
+  position: relative;
+}
+
+#control.on{
+	display: block;
+	left: 0px;
 }
 
 #but{
-  background-color: rgba(76, 132, 255, 0.5);
-  display: block;
-  height: 30px;
-  width: 10px;
+  display: flex;
+  height: 34px;
+  width: 34px;
   align-self: center;
   z-index: 500;
-  left: -50%;
   transition: all ease 0.5s;
   position: relative;
-  border-radius: 0 5px 5px 0 ;
-}
-
-#but.on{
-  display: block;
-  left: 0px;
-}
-
-#but:hover a{
-	width: 20px;
-}
-
-#but:hover{
-	width: 20px;
-}
-
-#but a{
-  height: 30px;
-  width: 10px;
-  display: block;
-}
-
-#demo {
-display: block;
-align-items: baseline;
+	margin: 10px 10px;
 }
 
 .label{
   background-color: #124297;
   color: #ffffff;
   padding: 0px 5px;
+}
+
+
+#menu-toggle span {
+  display: block;
+  background: #fbfbfb;
+  border-radius: 2px;
+  transition: .25s ease-in-out;
+}
+
+#menu-toggle {
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+  background: #124297;
+  border-radius: 4px;
+	background-clip: padding-box;
+	border: 2px solid rgba(0,0,0,0.2);
+	transition: all ease 0.5s;
+
+}
+#menu-toggle:hover {
+  background: #1d2647;
+	border-radius: 4px;
+	background-clip: padding-box;
+	border: 2px solid rgba(0,0,0,0.2);
+
+}
+#menu-toggle #hamburger {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#menu-toggle #hamburger span {
+  width: 20px;
+  height: 4px;
+  position: relative;
+  top: 0px;
+  left: 4px;
+  margin: 4px 0;
+}
+#menu-toggle #hamburger span:nth-child(1) {
+  width: 10px;
+  transition-delay: .5s;
+}
+#menu-toggle #hamburger span:nth-child(2) {
+  transition-delay: .625s;
+}
+#menu-toggle #hamburger span:nth-child(3) {
+  width: 10px;
+	left: 14px;
+  transition-delay: .75s;
+}
+#menu-toggle #cross {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: rotate(45deg);
+}
+#menu-toggle #cross span:nth-child(1) {
+  height: 0%;
+  width: 4px;
+  position: absolute;
+  top: 10%;
+  left: 12px;
+  transition-delay: 0s;
+}
+#menu-toggle #cross span:nth-child(2) {
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  left: 10%;
+  top: 12px;
+  transition-delay: .25s;
+}
+
+#menu-toggle.open #hamburger span {
+  width: 0%;
+}
+#menu-toggle.open #hamburger span:nth-child(1) {
+  transition-delay: 0s;
+}
+#menu-toggle.open #hamburger span:nth-child(2) {
+  transition-delay: .125s;
+}
+#menu-toggle.open #hamburger span:nth-child(3) {
+  transition-delay: .25s;
+}
+#menu-toggle.open #cross span:nth-child(1) {
+  height: 80%;
+  transition-delay: .625s;
+}
+#menu-toggle.open #cross span:nth-child(2) {
+  width: 80%;
+  transition-delay: .375s;
+}
+
+
+.state-info{
+	display: block;
+}
+
+.leaflet-marker-icon
+{
+	text-align:center;
+	line-height:24px;
+	font-size: 24px;
+	vertical-align: middle;
+	transition: all ease-in-out 0.2s;
+}
+
+.image{
+	display: block;
+		overflow: hidden;
+		margin: auto;
+		max-width: 100%;
+}
+
+.image img{
+	transform: scale(1);
+	transition: .7s ease-in-out;
+	max-width: 100%;
+	max-height: 400px;
+}
+
+.image img:hover{
+	transform: scale(1.2);
+}
+
+.divImg{
+	display: flex;
+	position: relative;
+	box-shadow: 0 10px 8px rgba(0, 0, 0, .2);
+	background-color: black;
+	margin-bottom: 10px;
+}
+
+.mainInfo{
+	background: linear-gradient(180deg, rgb(159, 185, 244) 0%, rgba(18, 66, 151, 0.59) 140%);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+	position: sticky;
+	top: 0px;
+	z-index: 5;
+	margin: 0px;
+	padding: 5px;
+	font-size: bold;
+}
+
+.mdi.rzd
+{
+    color:rgb(29, 181, 230);
+}
+
+.mdi.igs
+{
+    color:rgb(87, 186, 58);
+}
+
+.mdi.wort
+{
+    color:rgb(193, 187, 43);
+}
+
+.mdi.fags
+{
+    color:rgb(135, 39, 244);
+}
+
+.mdi.epn
+{
+    color:rgb(128, 128, 128);
+}
+
+.mdi.ACTIVE
+{
+    color:rgba(156, 28, 0, 0.88);
 }
