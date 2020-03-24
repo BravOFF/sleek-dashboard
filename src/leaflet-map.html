@@ -21,27 +21,93 @@ plugins: ["leaflet_map"]
                         	<aside id="map-menu" class="">
 														<div class="state-info">
 															<div class="mainInfo">
-																<h1 id="name"></h1>
-																<h1 id="ID"></h1>
+
+																				<div class="row no-gutters">
+																					<div class="col">
+																						<div class="card text-dark border-dark bg-dark" style="flex-direction: row;">
+																							<div class="row align-items-center w-100 justify-content-between">
+																								<div class="col-4">
+																									<div class="divImg">
+																										<img id="resize" src="assets/img/res.png" data-toggle="modal" data-target="#PicModal"></img>
+																										<img id="SatImg" class="card-img-left" src="" alt="Card image cap" style="width: 130px; height: 130px;">
+																									</div>
+																								</div>
+																								<div class="col">
+																								  <div class="card-body text-center p-0">
+																								    <h1 id="ID"></h1>
+																										<h1 id="name"></h1>
+																								  </div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
 															</div>
-															<!-- <p id="dat"></p> -->
-															<div class="divImg">
-																<div class="image">
-																	<img name="SatImg" src="" alt="">
-																</div>
+
+															<div class="InfoSat">
+																<p id="AllInfo" style="margin: 0px;"></p>
+
+																<!-- <div class="card text-white border-dark mb-1 InfoCard">
+																	<div class="card-header p-2">
+																		<h1>Основная информация</h1>
+																	</div>
+																	<div class="row no-gutters">
+																		<div class="card-body p-2">
+																			<p id="AllInfo"></p>
+																		</div>
+																	</div>
+																</div> -->
+
+
+
+																<!-- <div class="card text-white border-dark mb-1 InfoCard">
+																	<div class="card-header text-center p-2">
+																		<h1>Антенный центр станции</h1>
+																	</div>
+
+																	<div class="card-body p-2">
+
+																		<div class="row no-gutters">
+																			<div class="col-12">
+																				<div class="card-body p-2">
+																					<div class="card text-white border-dark mb-1 InfoCard">
+																						<div class="card-header text-center p-2">
+																							<h1>Антенна</h1>
+																						</div>
+																							<div class="card-body p-2">
+																								<p id="Antenna"></p>
+																							</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-12">
+																				<div class="card-body p-2">
+																					<div class="card text-white border-dark mb-1 InfoCard">
+																						<div class="card-header text-center p-2">
+																							<h1>Приёмник</h1>
+																						</div>
+																						<div class="card-body p-2">
+																							<p id="Receiver"></p>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<p id="gnss"></p>
+																	</div>
+																	<table class="table table-dark table-hover mb-0" id="tab"></table>
+																		<div class="card-body p-2">
+																			<p id="Station_center"></p>
+																		</div>
+
+
+
+																		<table class="table table-dark table-hover mb-0" id="coord"></table>
+
+																</div> -->
 
 															</div>
-															<p id="info"></p>
-		                          <p id="organization"></p>
-		                          <p id="network"></p>
-		                          <p id="id_network"></p>
-		                          <p id="conditional_name_rus"></p>
-		                          <p id="conditional_name_lat"></p>
-		                          <p id="date_install"></p>
-		                          <p id="destination"></p>
-		                          <p id="mode"></p>
-															<p id="department"></p>
-															<p id="address"></p>														
+
 														</div>
                         	</aside>
 													<div id="control">
@@ -57,14 +123,27 @@ plugins: ["leaflet_map"]
 													        <span></span>
 													      </div>
 													    </div>
-                       		   	<!-- <a href="javascript:void(0)" onclick="$('#control, #but').toggleClass('on'); $('#map-menu, #but').toggleClass('on')"></a> -->
                      	 	  	</div>
 													</div>
                         <div id="mapid"></div>
-
                       </div>
 										</div>
+									</div>
+								</div>
+							</div>
 
+							<div class="modal fade" id="PicModal" tabindex="-1" role="dialog" aria-labelledby="PicModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header" style="background-color: rgb(94, 124, 176);">
+											<h5 class="modal-title" id="PicModallLabel"></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" style="background-color: rgb(94, 124, 176);">
+											<img id="SatImg1" src="">
+										</div>
 									</div>
 								</div>
 							</div>
