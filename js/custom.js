@@ -179,16 +179,16 @@ $(document).ready(function() {
 
 
 
-import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist'
 
-import {SwaggerTranslator} from './swagger/translator'
-window.SwaggerTranslator = SwaggerTranslator;
-import ru from './swagger/lang/ru'
+
+// import {SwaggerTranslator} from './swagger/translator'
+// window.SwaggerTranslator = SwaggerTranslator;
+// import ru from './swagger/lang/ru'
 
 // console.log(ru);
 
 
-window.SwaggerTranslator.learn(ru);
+// window.SwaggerTranslator.learn(ru);
 
 window.onload = function() {
   if (document.getElementById('swagger-ui')) {
@@ -206,9 +206,9 @@ window.onload = function() {
       onComplete: function(){
         // console.log(ru);
 
-        if (window.SwaggerTranslator) {
-          window.SwaggerTranslator.translate('#swagger-ui');
-        }
+        // if (window.SwaggerTranslator) {
+          // window.SwaggerTranslator.translate('#swagger-ui');
+        // }
       },
 
       docExpansion: "none",

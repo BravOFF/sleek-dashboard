@@ -10,3 +10,4 @@ import * as leaflet from './leaflet';
 import * as custom from './custom';
 import * as dateRange  from './date-range';
 import * as layoutSettings  from './layout-settings';
+import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist';

@@ -1,10 +1,108 @@
 
-document.addEventListener("DOMContentLoaded", function(){
+
+
+//------------------------------------------------------------------------------
+
+      function prim(text) {
+        return "<span class=\"badge badge-primary\">"+text+"</span> ";
+      }
+
+      function pil(text) {
+        return "<span class=\"badge badge-pill badge-secondary\">"+text+"</span> ";
+      }
+
+// 1
+
+
+// 2
+      // function dtest() {
+// 3
+      // }
+// 4
+      function testtest() {
+        return '123';
+      }
+// 5
+// 6
+      function output(ob, ha) {
+        let outInfo = "<div class=\"card text-dark border-dark mb-1 mt-1 InfoCard\"> <div class=\"card-header p-2\"> <h1>" + ha["cname"] + "</h1> </div> <div class=\"row no-gutters\"><div class=\"card-body p-2\">";
+        let sc = "";
+        for (let v in ha) {
+          if (!ob[v] || v == 'number' || v == 'ID') {
+            continue;
+          }
+
+          if (v=="station_center"||v=="station_ceneter") {
+            sc+=output(ob[v], ha[v]);
+            continue;
+          }
+
+          if (v == 'chocke_ring') {
+            if (ob[v] == true) {
+              outInfo += prim(ha[v] + ":") + "есть<br><hr>";
+            }
+            else{
+              outInfo += prim(ha[v] + ":") + "нет<br><hr>";
+            }
+            continue;
+          }
+
+          if (v == 'gnss') {
+            let gnss = "";
+            for (let i = 0; i < ob[v].length; i++) {
+              gnss += ob[v][i];
+              if (i!=ob[v].length-1) {
+                gnss+=", ";
+              }
+            }
+            outInfo += prim(ha["gnss"] + ":") + gnss + "<br>";
+            continue;
+          }
+
+          if (v == 'coord' || v == 'frequency') {
+            let coord = "<div class=\"card text-white border-dark mb-1 mt-1 InfoCard\"> <div class=\"card-header p-2\"> <h1>" + ha[v]["cname"] +
+                        "</h1> </div> <div class=\"row no-gutters\"><div class=\"card-body p-0\">" +
+                        "<table class=\"table table-dark table-hover mb-0\"> <tbody>";
+            for (let i in ob[v]){
+              coord += "<tr><th scope=\"row\">" + i + "<\/th><td class=\"w-50\">" + ob[v][i] + "</td></tr>";
+            };
+            coord += "</tbody></table></div></div></div>";
+            outInfo += coord;
+            continue;
+          }
+
+          if (v == 'address' || v == 'contact') {
+            let address = prim(ha[v]["cname"] + ":");
+            for (let w in ha[v]) {
+              if (!ob[v][w]) {
+                continue;
+              }
+              address += pil(ha[v][w] + ":") + ob[v][w] + " ";
+            }
+            outInfo += address + "<br><hr>";
+            continue;
+          }
+
+          if (typeof ob[v] === 'object') {
+            outInfo += output(ob[v], ha[v]);
+          }
+          else {
+            outInfo += prim(ha[v] + ":") + ob[v] + "<br><hr>";
+          }
+        }
+        outInfo += "</div></div></div>";
+        return(outInfo + sc);
+      }
+//------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
 
   if (document.getElementById('mapid')) {
 
-    var mymap = L.map('mapid').setView([65, 100], 2);
-    mymap.setMinZoom(2);
+    var mymap = L.map('mapid').setView([65, 100], 3);
+    mymap.setMinZoom(3);
 
     var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -20,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function(){
       OSM: osmLayer,
     };
 
-    var southWest = L.latLng(-300, -200),
-      northEast = L.latLng(300, 200);
+    var southWest = L.latLng(-300, -300),
+      northEast = L.latLng(300, 300);
     var bounds = L.latLngBounds(southWest, northEast);
 
     mymap.setMaxBounds(bounds);
@@ -197,85 +295,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
       markersClusterGroup.checkIn(net);
 
-      function prim(text) {
-        return "<span class=\"badge badge-primary\">"+text+"</span> "
-      }
 
-      function pil(text) {
-        return "<span class=\"badge badge-pill badge-secondary\">"+text+"</span> "
-      }
 
-      function output(ob, ha) {
-        let outInfo = "<div class=\"card text-dark border-dark mb-1 mt-1 InfoCard\"> <div class=\"card-header p-2\"> <h1>" + ha["cname"] + "</h1> </div> <div class=\"row no-gutters\"><div class=\"card-body p-2\">";
-        let sc = "";
-        for (let v in ha) {
-          if (!ob[v] || v == 'number' || v == 'ID') {
-            continue;
-          }
-
-          if (v=="station_center"||v=="station_ceneter") {
-            sc+=output(ob[v], ha[v]);
-            continue;
-          }
-
-          if (v == 'chocke_ring') {
-            if (ob[v] == true) {
-              outInfo += prim(ha[v] + ":") + "есть<br><hr>";
-            }
-            else{
-              outInfo += prim(ha[v] + ":") + "нет<br><hr>";
-            }
-            continue;
-          }
-
-          if (v == 'gnss') {
-            let gnss = "";
-            for (let i = 0; i < ob[v].length; i++) {
-              gnss += ob[v][i];
-              if (i!=ob[v].length-1) {
-                gnss+=", ";
-              }
-            }
-            outInfo += prim(ha["gnss"] + ":") + gnss + "<br>";
-            continue;
-          }
-
-          if (v == 'coord' || v == 'frequency') {
-            let coord = "<div class=\"card text-white border-dark mb-1 mt-1 InfoCard\"> <div class=\"card-header p-2\"> <h1>" + ha[v]["cname"] +
-                        "</h1> </div> <div class=\"row no-gutters\"><div class=\"card-body p-0\">" +
-                        "<table class=\"table table-dark table-hover mb-0\"> <tbody>";
-            for (let i in ob[v]){
-              coord += "<tr><th scope=\"row\">" + i + "<\/th><td class=\"w-50\">" + ob[v][i] + "</td></tr>";
-            };
-            coord += "</tbody></table></div></div></div>";
-            outInfo += coord;
-            continue;
-          }
-
-          if (v == 'address' || v == 'contact') {
-            let address = prim(ha[v]["cname"] + ":");
-            for (let w in ha[v]) {
-              if (!ob[v][w]) {
-                continue;
-              }
-              address += pil(ha[v][w] + ":") + ob[v][w] + " ";
-            }
-            outInfo += address + "<br><hr>";
-            continue;
-          }
-
-          if (typeof ob[v] === 'object') {
-            outInfo += output(ob[v], ha[v]);
-          }
-          else {
-            outInfo += prim(ha[v] + ":") + ob[v] + "<br><hr>";
-          }
-        }
-        outInfo += "</div></div></div>";
-        return(outInfo + sc);
-      }
 
       function popupOpen(pop) {
+
         this.currentPop = pop;
         if (!$('#map-menu').hasClass('on') && !$('#control').hasClass('closed')) {
           $('#map-menu').toggleClass('on');
@@ -313,11 +337,30 @@ document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("SatImg").src = 'assets/img/favicon.png';
             document.getElementById("SatImg1").src = 'assets/img/favicon.png';
           }
-          pop.target.bindPopup("Название: " + fullDat.name + "<br/>ID: " + fullDat.ID);
+
+
+          pop.target.bindPopup("Название: " + fullDat.name + "<br>ID: " + fullDat.ID + "<br><button type=\"button\" id=\"more\" class=\"btn btn-pill btn-light btn-sm w-100 p-0 mt-1\" OnClick =\"testtest();\">Подробнее...</button>");
+
+
+          function testtest() {
+            return '123';
+          }
+
+//4
+          testtest();
+
+          // $('#more').on("click", function () {
+          //   console.log("123456");
+          //     $('#menu-toggle').toggleClass('open');
+          //     $('#control').toggleClass('on');
+          //     $('#map-menu').toggleClass('on');
+          //     let bound = mymap.getBounds();
+          //     let shiftM = ((bound.getNorthEast().lng - bound.getNorthWest().lng) + (bound.getSouthEast().lng - bound.getSouthWest().lng)) / 8;
+          //     mymap.setView([bound.getCenter().lat, bound.getCenter().lng - shiftM]);
+          // })
 
         })();
       }
-
       let cont = L.control.layers(baseMaps, net, 'sortLayers').addTo(mymap).expand();
       markersClusterGroup.addTo(mymap);
 
@@ -341,6 +384,15 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     })
 
+
+
+
+
+
+
     mymap.zoomControl.setPosition('topright');
   }
 });
+
+
+let chislo = 234;
